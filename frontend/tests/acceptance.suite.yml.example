@@ -1,0 +1,10 @@
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: http://frontend.local:20080/
+            browser: chrome
+        - Yii2:
+            configFile: 'frontend/tests/acceptance.php'
+        - Asserts
+        - \Helper\Acceptance
