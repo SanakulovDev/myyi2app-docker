@@ -21,14 +21,9 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Loyihaning ildiz katalogidagi fayllarni konteynerga nusxalash
-COPY . /var/www/html/
-
-# Working directoryni belgilash
 WORKDIR /var/www/html
 
-# COMPOSER_ALLOW_SUPERUSER o'zgaruvchisini sozlash
-ENV COMPOSER_ALLOW_SUPERUSER 1
+COPY . .
 
 # Nginx konfiguratsiyasini qo'shish
 COPY nginx.conf /etc/nginx/nginx.conf
